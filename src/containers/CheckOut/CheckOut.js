@@ -6,7 +6,7 @@ import ContactData from "./ContactData/ContactData";
 class CheckOut extends Component {
   state = {
     ingredients: null,
-    totalPrice: 0
+    price: 0
   };
 
   componentWillMount() {
@@ -41,10 +41,11 @@ class CheckOut extends Component {
         />
         <Route
           path={this.props.match.path + "/contact-data"}
-          render={() => (
+          render={props => (
             <ContactData
               ingredients={this.state.ingredients}
               price={this.state.totalPrice}
+              {...props}
             />
           )}
         />
